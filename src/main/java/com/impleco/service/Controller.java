@@ -20,7 +20,7 @@ import java.util.Map;
 public class Controller {
     @Autowired
     private HaushaltService haushaltService;
-   @RequestMapping("/payment")
+   @RequestMapping("/payments")
     public List<Payment> payment(){
         return haushaltService.getAllPayments();
     }
@@ -28,7 +28,7 @@ public class Controller {
     public Map<String, String> getDeposit(){
        return haushaltService.getDepositMap();
     }
-    @RequestMapping(method=RequestMethod.POST, value="/payments")
+    @RequestMapping(method=RequestMethod.POST, value="/payment")
     public void addPayment(@RequestBody Payment payment) {
     	 haushaltService.addPayment(payment);
     }
