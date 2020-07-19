@@ -1,0 +1,83 @@
+package com.impleco.model;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+
+
+
+
+public class Payment {
+	
+
+    private String type ;
+    private double amount;
+    private String categoryname;
+    private String memo;
+    private String date;
+
+    public Payment(){}
+    public Payment(String catergoryname, double amount) {
+    	this.categoryname = categoryname;
+    	this.amount = amount;
+    }
+    public Payment(String type, double amount, String categoryname,String memo, String date ) {
+        this.type = type;
+        this.amount = amount;
+        this.categoryname = categoryname;
+        this.memo = memo;
+        this.setDate(date);
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public String getCategoryname() {
+        return categoryname;
+    }
+
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
+    public String getDate() { return date; }
+
+    
+    public void setDate(String date) {
+        if(date == null || date.isEmpty()){
+            DateFormat df = new SimpleDateFormat("dd.MM.YYYY"); 
+            Date d = Calendar.getInstance().getTime();
+            date = df.format(d);
+        }
+        this.date = date;
+    }
+}
+
+
+
+
+
+
+

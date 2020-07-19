@@ -1,0 +1,8 @@
+com/impleco/service/App.class
+com/impleco/model/Deposit.class
+com/impleco/service/HaushaltService.class
+com/impleco/service/Controller.class
+com/impleco/model/Kassen.class
+com/impleco/model/Transaction.class
+com/impleco/model/Category.class
+com/impleco/model/Payment.class
