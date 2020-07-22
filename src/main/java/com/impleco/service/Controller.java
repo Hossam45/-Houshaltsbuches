@@ -11,10 +11,10 @@ import com.impleco.model.Category;
 import com.impleco.model.Deposit;
 import com.impleco.model.Kassen;
 import com.impleco.model.Payment;
-import com.impleco.model.Transaction;
+
 
 import java.util.List;
-import java.util.Map;
+
 
 @RestController
 public class Controller {
@@ -24,13 +24,18 @@ public class Controller {
     public List<Payment> payment(){
         return haushaltService.getAllPayments();
     }
-    @RequestMapping("/deposit")
-    public Map<String, String> getDeposit(){
-       return haushaltService.getDepositMap();
-    }
+   @RequestMapping("/deposits")
+   public List<Deposit> deposit(){
+       return haushaltService.getAllDeposits();
+   }
+   
     @RequestMapping(method=RequestMethod.POST, value="/payment")
     public void addPayment(@RequestBody Payment payment) {
     	 haushaltService.addPayment(payment);
+    }
+    @RequestMapping(method=RequestMethod.POST, value="/deposit")
+    public void addDeposit(@RequestBody Deposit deposit) {
+    	 haushaltService.addDeposit(deposit);
     }
     @RequestMapping("/category")
     public List<Category> getcategory() {

@@ -5,6 +5,16 @@ public class Kassen {
 	private double kassenbestand;
 	private Transaction transaction;
 	
+	
+	public Kassen() {
+		super();
+	}
+
+	public Kassen(double kassenbestand, Transaction transaction) {
+		this.kassenbestand = kassenbestand;
+		this.transaction = transaction;
+	}
+	
 	public Kassen(double kassenbestand) {
 		this.kassenbestand = kassenbestand;
 	}

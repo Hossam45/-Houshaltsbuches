@@ -5,14 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.springframework.util.StringUtils;
+
 public class Deposit {
     private String type;
     private double amount;
-    private String date;
+    private String date = initialDate();
 
     public Deposit(){}
 
-    public Deposit(String type, double amount){
+    public Deposit(String type, double amount, String date){
         this.type = type;
         this.amount = amount;
         this.setDate(date);
@@ -31,9 +33,9 @@ public class Deposit {
     }
 
     public void setDate(String date) {
-            DateFormat df = new SimpleDateFormat("dd.MM.YYYY");
-            Date d = Calendar.getInstance().getTime();
-            date = df.format(d);
+    	if(StringUtils.isEmpty(date)) {
+    		date = initialDate();
+    	}
         this.date = date;
     }
 
@@ -43,5 +45,11 @@ public class Deposit {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+
+    public String initialDate() {
+        DateFormat df = new SimpleDateFormat("dd.MM.YYYY");
+        return df.format(new Date());
     }
 }

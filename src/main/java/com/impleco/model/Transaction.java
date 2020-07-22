@@ -8,8 +8,8 @@ import java.util.Map;
 public class Transaction {
 
     private String date;
-    private Map<String, String> paymentMap = new LinkedHashMap<String, String>();
-    public List<Deposit> deposits = new ArrayList<Deposit>();
+    private List<Category> paymentTransactionList = new ArrayList<>();
+    public Map<String ,Object> deposits = new LinkedHashMap<>();
     
 
     public Transaction() {
@@ -17,6 +17,7 @@ public class Transaction {
     }
     public Transaction(String date) {
         this.date = date;
+        
     }
 
     public String getDate() {
@@ -26,26 +27,19 @@ public class Transaction {
     public void setDate(String date) {
         this.date = date;
     }
-
-	public List<Deposit> getDeposits() {
+	public List<Category> getpaymentTransactionList() {
+		return paymentTransactionList;
+	}
+	public void setpaymentTransactionList(List<Category> paymentTransactionList) {
+		this.paymentTransactionList = paymentTransactionList;
+	}
+	public Map<String, Object> getDeposits() {
 		return deposits;
 	}
-
-	public void setDeposits(List<Deposit> deposits) {
+	public void setDeposits(Map<String, Object> deposits) {
 		this.deposits = deposits;
 	}
 
-	public Map<String, String> getPaymentMap() {
-		return paymentMap;
-	}
-
-	public void setPaymentMap(Map<String, String> paymentMap) {
-		this.paymentMap = paymentMap;
-	}
-
 	
-
-    
-
-   
+	
 }

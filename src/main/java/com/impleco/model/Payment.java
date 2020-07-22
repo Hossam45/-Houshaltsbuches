@@ -4,8 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
-
+import org.springframework.util.StringUtils;
 
 
 public class Payment {
@@ -15,13 +14,9 @@ public class Payment {
     private double amount;
     private String categoryname;
     private String memo;
-    private String date;
+    private String date = initialDate() ;
 
     public Payment(){}
-    public Payment(String catergoryname, double amount) {
-    	this.categoryname = categoryname;
-    	this.amount = amount;
-    }
     public Payment(String type, double amount, String categoryname,String memo, String date ) {
         this.type = type;
         this.amount = amount;
@@ -66,18 +61,13 @@ public class Payment {
 
     
     public void setDate(String date) {
-        if(date == null || date.isEmpty()){
-            DateFormat df = new SimpleDateFormat("dd.MM.YYYY"); 
-            Date d = Calendar.getInstance().getTime();
-            date = df.format(d);
-        }
+    	if(StringUtils.isEmpty(date)) {
+    		date = initialDate();
+    	}
         this.date = date;
     }
+    public String initialDate() {
+        DateFormat df = new SimpleDateFormat("dd.MM.YYYY");
+        return df.format(new Date());
+    }
 }
-
-
-
-
-
-
-
